@@ -5,7 +5,7 @@
 3. Open Terminal and run "npm install -dd" from your project folder to install package dependencies. This can take a while.
 4. Create something awesome!
 
-# Important
+## Important
 When you upload your project, make sure you login to the root folder in the FTP account, your htdocs/public_html folder will be public facing and src should always be uploaded outside of the public folder.
 
 **Do not upload /node_modules.**
