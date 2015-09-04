@@ -37,10 +37,10 @@ require_once('scripts/includes.php');
  * Turn on error reporting
  * if we're on localhost
  */
-if ( is_localhost() ) {
+//if ( is_localhost() ) {
     error_reporting(E_ALL);
     ini_set('display_errors', 'on');
-}
+//}
 
 /**
  * Instantiate theme

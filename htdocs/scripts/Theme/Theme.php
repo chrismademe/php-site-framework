@@ -6,18 +6,29 @@ class Theme
 {
 
     private $directory = THEME_DIR;
-    private $content = SITE_CONTENT;
     private $theme = SITE_THEME;
     private $extension = THEME_TPL_EXT;
     private $partial = THEME_INC;
     private $variables;
     private $output;
+    private $return = 'print';
 
     /**
      * Setup
      */
     public function __construct($params = null) {
 
+        // Check which theme is being called
+        if (isset($params['theme'])) {
+            $this->theme = $params['theme'];
+        }
+
+        // Check which return type is used
+        if (isset($params['return'])) {
+            $this->return = $params['return'];
+        }
+
+        // Setup Variables
         if (isset($params['variables'])) {
 
             $variables = $params['variables'];
@@ -109,7 +120,18 @@ class Theme
         extract($this->variables);
         ob_start();
         include $tpl;
-        print ob_get_clean();
+
+        switch ($this->return) {
+
+            case 'value':
+                return ob_get_clean();
+            break;
+
+            default:
+                print ob_get_clean();
+            break;
+
+        }
 
     }
 
