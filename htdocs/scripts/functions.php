@@ -33,9 +33,8 @@ function is_localhost() {
 function is_page($id = null) {
 
     $id = (is_null($id) ? 'homepage' : $id);
-    $uri = get_page();
 
-    if ($id == $uri) {
+    if ($id == get_page()) {
         return true;
     } else {
         return false;
@@ -54,9 +53,6 @@ function is_home() {
 
 /**
  * Get Current Page
- *
- * Moved from SEO class to
- * global scope.
  */
 function get_page() {
 
@@ -95,18 +91,21 @@ function this_year($value = null) {
 
 /**
  * Check to see if
- * an element has date
- * and time have passed
+ * date and time have passed
  *
  * Date format: ddmmyyyy
  * Time format: hhmm
  */
-function has_expired($date, $time) {
+function has_expired($date, $time = null) {
 
+    // Set time
+    if (is_null($time))
+        $time = '00:00';
+
+    // Set time and date
     $exp = $date . $time;
-    $now = date('dmYHi');
 
-    if ($now >= $exp) {
+    if (date('dmYHi') >= $exp) {
         return true;
     } else {
         return false;
