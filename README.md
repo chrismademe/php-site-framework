@@ -1,6 +1,6 @@
 # PHP Site Framework
 
-1. Copy the /install folder to your project root.
+1. Copy this folder to your project root.
 2. Edit package.json with your project name and description.
 3. Open Terminal and run "npm install -dd" from your project folder to install package dependencies. This can take a while.
 4. Create something awesome!
