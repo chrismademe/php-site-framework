@@ -60,6 +60,9 @@ var gulp = require('gulp'),
         // Watch .js files
         gulp.watch('src/js/*.js', ['scripts']);
 
+        // Watch .js files
+        gulp.watch('src/images/*', ['images']);
+
         // Create LiveReload server
         livereload.listen();
 
