@@ -93,7 +93,7 @@ class Theme
                 if (!isset($tpl)) {
 
                     if (file_exists($this->directory .'/'. $this->theme .'/'. $this->partial .'/'. $part . $this->extension)) {
-                        $tpl = $this->directory .'/'. $this->theme .'/'. $this->partial .'/'. $part . $this->extension;
+                        $tpl = $this->directory .'/'. $this->theme .'/page'. $this->extension;
                     } else {
                         $tpl = $this->directory .'/'. $this->theme .'/404'. $this->extension;
                     }
@@ -118,8 +118,14 @@ class Theme
      */
 
     // Get partial
-    public function get_partial($part) {
+    public function get_partial($part = null) {
+
+        // Default to current page
+        if ( is_null($part) )
+            $part = $this->slug;
+
         return $this->get_template($this->partial .'/'. $part);
+
     }
 
     // Get Header partial
