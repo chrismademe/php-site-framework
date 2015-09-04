@@ -1,0 +1,50 @@
+.widget {
+    @include rem(margin-top, 2rem);
+    position: relative;
+
+    &:first-of-type {
+        margin-top: 0;
+    }
+
+    .title {
+        color: $brand;
+        @include rem(font-size, 1.6rem);
+        font-weight: 600;
+        margin: 0;
+        @include rem(padding, 1.5rem 0 0 0);
+        text-transform: uppercase;
+    }
+
+    > .content {
+        @include rem(padding, 2rem 0);
+    }
+
+    .story {
+        @include rem(padding, 2rem 0);
+        @include grid-wrapper;
+
+        .image {
+            @include span-columns(4);
+        }
+
+        .content {
+            @include span-columns(8);
+
+            p {
+                margin: 0;
+            }
+        }
+    }
+
+    .time {
+        font-size: 0.9em;
+        margin: 0.3em 0;
+
+        span {
+            color: #777;
+            display: inline-block;
+            float: right;
+            text-align: right;
+        }
+    }
+}

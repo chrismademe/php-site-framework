@@ -1,0 +1,50 @@
+@mixin navigation($display: list) {
+    background-color: $lighter-grey;
+    display: none;
+
+    ul {
+        list-style: none;
+        margin: 0;
+        @include rem(padding, 0 2.2rem);
+
+        li {
+            @if $display == inline {
+                display: inline-block;
+            } @else {
+                display: list-item;
+            }
+            margin: 0;
+            padding: 0;
+
+            a {
+                color: $dark-grey;
+                display: block;
+                font-weight: 400;
+                @include rem(padding, 1rem 0.8rem);
+                text-decoration: none;
+            }
+
+            ul {
+                display: none;
+            }
+        }
+    }
+
+    @include bp('large tablet') {
+        display: block;
+    }
+
+    @include bp('desktop') {
+        ul {
+            padding: 0;
+
+            li a {
+                @include rem(padding, 1.2rem 1.8rem 1.2rem 0);
+            }
+        }
+    }
+}
+
+.primary-menu {
+    @include navigation(inline);
+}

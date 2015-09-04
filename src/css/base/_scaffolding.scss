@@ -1,0 +1,21 @@
+html {
+    font-size: 62.5%;
+}
+
+body {
+    @include rem(font-size, $body-font-size);
+    font-weight: $body-font-weight;
+    overflow-x: hidden;
+}
+
+.wrapper {
+    margin: 0 auto;
+
+    @include bp('desktop') {
+        width: 960px;
+    }
+
+    @include bp('large desktop') {
+        width: 1020px;
+    }
+}

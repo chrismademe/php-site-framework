@@ -1,0 +1,80 @@
+$column-count: 12 !default;
+$gutter:       16px !default;
+$font-reset:   $body-font-family !default;
+$size-small:   480px !default;
+$size-medium:  960px !default;
+
+@mixin grid-wrapper() {
+    font-family: monospace;
+    letter-spacing: -.65em;
+    margin-left: -$gutter;
+    margin-right: -$gutter;
+    text-align: left;
+    display: block;
+    overflow-x: hidden;
+    &.align-center {
+        text-align: center;
+    }
+    &.align-right {
+        text-align: right;
+    }
+}
+
+@mixin column() {
+    font-family: $font-reset;
+    letter-spacing: normal;
+    display: inline-block;
+    padding-left: $gutter;
+    padding-right: $gutter;
+    position: relative;
+    float: none;
+    text-align: left;
+    vertical-align: top;
+    box-sizing: border-box;
+    &.align-baseline {
+        vertical-align: baseline;
+    }
+}
+
+@mixin span-columns($span) {
+    @include column;
+    width: column($span);
+}
+
+.grid-wrapper {
+    @include grid-wrapper;
+}
+
+[class*="column-"] {
+    @include column;
+}
+
+@function column ($i) {
+    @return ($i / $column-count) * 100%;
+}
+
+@for $n from 1 through $column-count {
+    .column-#{$n} { width: column($n); }
+    .pre-#{$n}    { margin-left: column($n); }
+    .post-#{$n}   { margin-right: column($n); }
+}
+
+@media (max-width: $size-medium) {
+    @for $i from 1 through $column-count {
+        .medium-column-#{$i} { width: column($i); }
+    }
+    @for $i from 0 through $column-count {
+        .medium-pre-#{$i}  { margin-left: column($i); }
+        .medium-post-#{$i} { margin-right: column($i); }
+    }
+}
+
+@media (max-width: $size-small) {
+    @for $i from 1 through $column-count {
+        .small-column-#{$i} { width: column($i); }
+    }
+    @for $i from 0 through $column-count {
+        .small-pre-#{$i}  { margin-left: column($i); }
+        .small-post-#{$i} { margin-right: column($i); }
+    }
+}

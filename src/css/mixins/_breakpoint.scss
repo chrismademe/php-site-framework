@@ -1,0 +1,33 @@
+@mixin bp($screen) {
+
+    @if $screen == 'mobile' {
+        @media (max-width: $bp-small) {
+            @content;
+        }
+    }
+
+    @if $screen == 'tablet' {
+        @media (min-width: $bp-small) {
+            @content;
+        }
+    }
+
+    @if $screen == 'large tablet' {
+        @media (min-width: $bp-medium) {
+            @content;
+        }
+    }
+
+    @if $screen == 'desktop' {
+        @media (min-width: $bp-large) {
+            @content;
+        }
+    }
+
+    @if $screen == 'large desktop' {
+        @media (min-width: $bp-xlarge) {
+            @content;
+        }
+    }
+
+}
