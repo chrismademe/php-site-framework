@@ -35,13 +35,12 @@ if ( $_POST ) {
             'type' => 'message',
             'content' => $_POST['message'],
         );
-        /*
         $data['validate'] = array(
             'id' => 'validate',
             'label' => 'Validation',
             'type' => 'validate',
             'content' => $_POST['validate']
-        );*/
+        );
 
         /**
          * Submit form
