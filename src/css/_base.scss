@@ -1,38 +1,13 @@
-// Variables
-@import "variables";
+/**
+ * _base.scss
+ *
+ * This file is used to bring
+ * framework files together.
+ */
 
-// Mixins
-@import "mixins/rem",
-        "mixins/vendor-prefix",
-        "mixins/breakpoint",
-        "mixins/clearfix",
-        "mixins/text-ellipsis";
-
-// CSS Reset
+// Import CSS Reset
 @import "base/normalize";
 
-// Base Styles
-@import "base/scaffolding",
-        "base/typography";
-
-// Layout
-@import "layout/grid";
-
-// Components
-@import "components/alerts",
-        "components/buttons",
-        "components/forms",
-        "components/lists",
-        "components/video-player";
-
-// Vendor
-@import "vendor/ionicons/ionicons",
-        "vendor/slick/slick",
-        "vendor/animate/animate";
-
-// Snippets
-@import "snippets/header",
-        "snippets/slider",
-        "snippets/mobile-navigation",
-        "snippets/navigation",
-        "snippets/widget";
+// Import Vendor styles
+@import "vendor/animate/animate",
+        "vendor/slick/slick";
