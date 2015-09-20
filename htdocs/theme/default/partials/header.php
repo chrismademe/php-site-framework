@@ -12,7 +12,6 @@
     <link rel="canonical" href="<?php echo $this->domain .'/'. $this->page['canonical']; ?>">
 
     <link rel="stylesheet" type="text/css" href="<?php assets_dir() ?>/css/style.css">
-    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Roboto:300,400,600,700">
     <link rel="apple-touch-icon" sizes="57x57" href="<?php assets_dir() ?>/images/icons/apple-touch-icon-57x57.png">
     <link rel="apple-touch-icon" sizes="76x76" href="<?php assets_dir() ?>/images/icons/apple-touch-icon-76x76.png">
     <link rel="apple-touch-icon" sizes="120x120" href="<?php assets_dir() ?>/images/icons/apple-touch-icon-120x120.png">
