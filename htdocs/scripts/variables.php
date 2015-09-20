@@ -12,12 +12,11 @@ $_['path'] = $path;                     // Path as it comes (e.g. services/desig
 $_['slug'] = get_page();                // Formatted page ID (e.g. services-design)
 
 /** ----------------------------------- **
- * Page meta can be overidden here by    *
- * adding an array with the key of       *
- * the page you wish to override or      *
- * for custom page template, set the     *
- * information directly in the           *
- * template                              *
+ * Default page meta is set here but     *
+ * should be overridden in your          *
+ * theme files. Access the array using   *
+ * $this->page from your template. See   *
+ * the default homepage for an example.  *
  ** ----------------------------------- **/
 
 // Page meta data
