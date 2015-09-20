@@ -10,17 +10,24 @@ var gulp = require('gulp'),
     livereload = require('gulp-livereload'),
     plumber = require('gulp-plumber'),
     del = require('del'),
-    autoprefixer = require('gulp-autoprefixer'),
-    theme = 'default';
+    autoprefixer = require('gulp-autoprefixer');
+
+// Config
+var config = {
+
+    // Site theme name as declared in config.php
+    theme = 'default'
+    
+}
 
     // Style Tasks
     gulp.task('styles', function() {
         return sass('src/css/style.scss', { style: 'expanded' })
         .pipe(plumber())
-        .pipe(gulp.dest('htdocs/theme/'+ theme +'/assets/css'))
+        .pipe(gulp.dest('htdocs/theme/'+ config.theme +'/assets/css'))
         .pipe(autoprefixer({cascade: false}))
         .pipe(minifycss())
-        .pipe(gulp.dest('htdocs/theme/'+ theme +'/assets/css'))
+        .pipe(gulp.dest('htdocs/theme/'+ config.theme +'/assets/css'))
         .pipe(notify({ message: 'Styles task complete' }));
     });
 
@@ -29,9 +36,9 @@ var gulp = require('gulp'),
         return gulp.src(['src/js/*.js', 'src/js/vendor/*.js'], { base: '/src' })
         .pipe(plumber())
         .pipe(concat('main.js'))
-        .pipe(gulp.dest('htdocs/theme/'+ theme +'/assets/js'))
+        .pipe(gulp.dest('htdocs/theme/'+ config.theme +'/assets/js'))
         .pipe(uglify())
-        .pipe(gulp.dest('htdocs/theme/'+ theme +'/assets/js'))
+        .pipe(gulp.dest('htdocs/theme/'+ config.theme +'/assets/js'))
         .pipe(notify({ message: 'Scripts task complete' }));
     });
 
@@ -40,13 +47,13 @@ var gulp = require('gulp'),
         return gulp.src('src/images/*')
         .pipe(plumber())
         .pipe(cache(imagemin({ optimizationLevel: 5, progressive: true, interlaced: true })))
-        .pipe(gulp.dest('htdocs/theme/'+ theme +'/assets/images'))
+        .pipe(gulp.dest('htdocs/theme/'+ config.theme +'/assets/images'))
         .pipe(notify({ message: 'Images task complete' }));
     });
 
     // Housekeeping
     gulp.task('clean', function(cb) {
-        del(['htdocs/theme/'+ theme +'/assets/css'], cb)
+        del(['htdocs/theme/'+ config.theme +'/assets/css'], cb)
     });
 
     // Default task
@@ -70,6 +77,6 @@ var gulp = require('gulp'),
         livereload.listen();
 
         // Watch any files in dist/, reload on change
-        gulp.watch(['theme/'+ theme +'/assets/css/**']).on('change', livereload.changed);
+        gulp.watch(['theme/'+ config.theme +'/assets/css/**']).on('change', livereload.changed);
 
     });
