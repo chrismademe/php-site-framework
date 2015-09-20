@@ -30,3 +30,5 @@
 
 </head>
 <body class="page-<?php echo $this->slug; ?>">
+
+    <?php /* Browser Update Message */ if ( part_exists('analytics') ): $this->get_partial('browser-update'); endif; ?>
