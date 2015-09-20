@@ -18,7 +18,7 @@
     <link rel="apple-touch-icon" sizes="120x120" href="<?php assets_dir() ?>/images/icons/apple-touch-icon-120x120.png">
     <link rel="apple-touch-icon" sizes="152x152" href="<?php assets_dir() ?>/images/icons/apple-touch-icon-152x152.png">
     <link rel="apple-touch-icon" sizes="180x180" href="<?php assets_dir() ?>/images/icons/apple-touch-icon-180x180.png">
-    <link rel="icon" type="" href="/favicon.ico">
+    <link rel="icon" type="image/x-icon" href="/favicon.ico">
 
     <?php if ( part_exists('analytics') ): $this->get_partial('analytics'); endif; ?>
 
