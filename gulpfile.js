@@ -16,8 +16,8 @@ var gulp = require('gulp'),
 var config = {
 
     // Site theme name as declared in config.php
-    theme = 'default'
-    
+    theme: 'default'
+
 }
 
     // Style Tasks
